@@ -1,2 +1,10 @@
+__init__.py
+
+# Ambiente virtual
 venv/
+
+# Arquivos de bytecode
 *.cpython-310.pyc
+
+# Bancos de dados
+*.db

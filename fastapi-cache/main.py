@@ -1,26 +1,16 @@
 from fastapi import FastAPI
 
+from fastapi_cache.core.config import GlobalConfig as settings
 from fastapi_cache.db.session import create_db_and_tables, bulk_create_movies, bulk_create_genres
 
 
-title: str = "Title"
-version: str = "1.0.0"
-description: str = "Description here"
-docs_url: str = "/docs"
-redoc_url: str = "/redoc"
-openapi_url: str = "/openapi.json"
-api_prefix: str = "/api"
-debug: bool = True
-
 app = FastAPI(
-    title=title,
-    version=version,
-    description=description,
-    docs_url=docs_url,
-    openapi_url=openapi_url,
+    title=settings.title,
+    version=settings.version,
+    description=settings.description,
+    docs_url=settings.docs_url,
+    openapi_url=settings.openapi_url,
 )
-
-#app = FastAPI()
 
 
 @app.get('/')

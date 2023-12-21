@@ -1,8 +1,11 @@
 from fastapi import FastAPI
 
-from fastapi_cache.core.config import GlobalConfig as settings
-from fastapi_cache.db.session import create_db_and_tables, bulk_create_movies, bulk_create_genres
+from fastapi_cache.api.router import router
+from fastapi_cache.core.config import GlobalConfig
+from fastapi_cache.db.sessions import create_db_and_tables, bulk_create_movies, bulk_create_genres
 
+
+settings = GlobalConfig()
 
 app = FastAPI(
     title=settings.title,
@@ -11,6 +14,8 @@ app = FastAPI(
     docs_url=settings.docs_url,
     openapi_url=settings.openapi_url,
 )
+
+app.include_router(router, prefix=settings.api_prefix)
 
 
 @app.get('/')

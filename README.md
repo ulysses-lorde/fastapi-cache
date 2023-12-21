@@ -15,3 +15,6 @@ O FastAPI Cache é um projeto de API que utiliza comunicação assíncrona e arm
 
    ```bash
    git clone https://github.com/seu-usuario/fastapi-cache.git
+
+docker build -t image-one .
+docker run -p 8000:8000 image-one

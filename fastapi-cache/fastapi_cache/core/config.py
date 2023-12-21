@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from pydantic import BaseConfig
 
 
+load_dotenv()
+
 class GlobalConfig(BaseConfig):
 
     title: str = "Title"
